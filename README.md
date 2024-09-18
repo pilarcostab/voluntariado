@@ -8,4 +8,5 @@ El modelo de datos consta de dos entidades principales:
 **Voluntario** Representa un voluntario en especifico
 
 ## Diagrama de base de datos:
-![Diagrama ER] (escritorio/tp-especial/voluntariado/tablas.png)
+![Diagrama de base de datos](https://github.com/pilarcostab/voluntariado/blob/main/tablas.png?raw=true)
+
