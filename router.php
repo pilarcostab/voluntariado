@@ -1,5 +1,7 @@
 <?php
 require_once './controladores/controladorVoluntario.php';
+require_once './controladores/controladorSede.php';
+
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'home';
@@ -16,12 +18,12 @@ switch ($params[0]) {
         $controladorVoluntario->showHome();
         break;
     case 'sedes':
-        $controladorVoluntario = new controladorVoluntario();
-        $controladorVoluntario->sedes();
+        $controladorSede = new controladorSede();
+        $controladorSede->sedes();
         break;
     case 'voluntario':
-        $controladorVoluntario = new controladorVoluntario();
-        $controladorVoluntario->mostrarVoluntarios($params[1]);
+        $controladorSede = new controladorSede();
+        $controladorSede->mostrarVoluntarios($params[1]);
         break;
     default:
         # code...

@@ -2,16 +2,15 @@
 
 <h1>Voluntarios en la Sede <?php echo htmlspecialchars($id_sede); ?></h1>
 
-<?php if (!empty($volunteers)): ?>
+<?php if (!empty($voluntarios)): ?>
     <ol class="list-group list-group-numbered">
-        <?php foreach ($volunteers as $volunteer): ?>
+        <?php foreach ($voluntarios as $voluntario): ?>
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
                     <div class="fw-bold">
-                        <?php echo htmlspecialchars($volunteer->nombre) . ' ' . htmlspecialchars($volunteer->apellido); ?>
+                        <?php echo htmlspecialchars($voluntario->nombre) . ' ' . htmlspecialchars($voluntario->apellido); ?>
                     </div>
                 </div>
-                <!-- Aquí podrías usar una insignia o algún dato adicional sobre el voluntario si es necesario -->
                 <span class="badge text-bg-primary rounded-pill">Voluntario</span>
             </li>
         <?php endforeach; ?>
