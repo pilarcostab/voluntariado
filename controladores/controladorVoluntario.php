@@ -12,8 +12,9 @@ class controladorVoluntario
         $this->vista = new vistaVoluntario();
     }
 
-    public function showHome()
+    public function mostrarHome()
     {
-        $this->vista->showHome();
+        $voluntarios = $this->modelo->obtenerVoluntarios();
+        $this->vista->mostrarHome($voluntarios);
     }
 }
