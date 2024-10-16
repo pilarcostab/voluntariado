@@ -14,3 +14,40 @@
         </div>
     </div>
 </div>
+
+<figure class="text-center">
+    <blockquote class="blockquote">
+        <p>Que esperas para sumarte?</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        una experiencia unica en la vida
+    </figcaption>
+</figure>
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">voluntario</th>
+                <th scope="col">nombre</th>
+                <th scope="col">apellido</th>
+                <th scope="col">sede</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <?php foreach ($voluntarios as $voluntario): ?>
+                <tr>
+                    <th scope="row"><?= $voluntario->id_voluntario ?></th>
+                    <td><?= $voluntario->nombre ?></td>
+                    <td><?= $voluntario->apellido ?></td>
+                    <td><?= $voluntario->sede_nombre ?></td>
+                </tr>
+
+
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>
+
+<?php include_once './templates/footer.phtml'; ?>
