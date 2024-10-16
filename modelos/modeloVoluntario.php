@@ -7,11 +7,6 @@ class modeloVoluntario
     public function __construct(){
         $this->db= new PDO('mysql:host=localhost;'.'dbname=voluntariado;charset=utf8', 'root', '');
     }   
-    
-    public function __construct()
-    {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=voluntariado;charset=utf8', 'root', '');
-    }
 
     public function obtenerVoluntarios()
     {

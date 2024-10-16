@@ -1,8 +1,8 @@
 <?php
 require_once './vistas/vistaAutenticacion.php';
 require_once './modelos/modeloVoluntario.php';
-class controladorAutenticacion
-{
+
+class controladorAutenticacion {
     private $modelo;
     private $vista;
 
@@ -24,4 +24,13 @@ class controladorAutenticacion
     public function registrarse() {}
 
     public function ingresar() {}
+
+    public function logout() {
+        session_start();  
+        session_destroy();  
+        header('Location: ' . BASE_URL . 'home'); 
+        exit();
+    }
+
+
 }

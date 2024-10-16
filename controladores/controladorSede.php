@@ -26,4 +26,24 @@ class controladorSede {
             echo "No se encontraron voluntarios para la sede con ID:" . $id_sede;
         }
     }    
+
+
+//EJEMPLO 
+    public function agregarCategoria() {
+        session_start();
+        if (!isset($_SESSION['USER_ID'])) {
+            header('Location: ' . BASE_URL . 'login');  
+            exit();
+        }
+        //....código para agregar una categoría
+    }
+
+    public function eliminarCategoria($id_sede) {
+        session_start();
+        if (!isset($_SESSION['USER_ID'])) {
+            header('Location: ' . BASE_URL . 'login');  // redirige al login si no está logueado
+            exit();
+        }
+        //...código para eliminar una categoría
+    }
 }

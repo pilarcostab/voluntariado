@@ -18,4 +18,11 @@
   <?php endif; ?>
 </ol>
 
+<!--EJEMPLO-->
+<?php if (isset($_SESSION['USER_ID'])): ?>
+    <a href="<?php echo BASE_URL . 'agregar-categoria'; ?>" class="btn btn-success">Agregar Categoría</a>
+    <a href="<?php echo BASE_URL . 'editar-categoria/' . $sede->id_sede; ?>" class="btn btn-warning">Editar</a>
+    <a href="<?php echo BASE_URL . 'eliminar-categoria/' . $sede->id_sede; ?>" class="btn btn-danger">Eliminar</a>
+<?php endif; ?>
+
 <?php include 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/footer.phtml'; ?>

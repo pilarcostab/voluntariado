@@ -2,7 +2,6 @@
 require_once './controladores/controladorVoluntario.php';
 require_once './controladores/controladorSede.php';
 
-=======
 require_once './controladores/controladorAutenticacion.php';
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -42,6 +41,10 @@ switch ($params[0]) {
         $controladorSede = new controladorSede();
         $controladorSede->mostrarVoluntarios($params[1]);
         break;
+    case 'logout':
+        $controladorAutenticacion = new controladorAutenticacion();
+        $controladorAutenticacion->logout();
+        break;        
     default:
         # code...
         break;
