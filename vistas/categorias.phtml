@@ -1,0 +1,21 @@
+<?php include 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/header.phtml'; ?>
+<br><h1>Listado de Sedes</h1><br>
+<ol class="list-group list-group-numbered">
+  <?php if (!empty($sedes)): ?>
+    <?php foreach ($sedes as $index => $sede): ?>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <a href="<?php echo BASE_URL . 'voluntario/' . $sede->id_sede; ?>" class="text-decoration-none">
+            <div class="fw-bold"><?php echo $sede->ciudad . ", " . $sede->pais; ?></div>
+        </div>
+        <span class="badge text-bg-primary rounded-pill">
+          <?php echo $index + 1; ?>
+        </span>
+      </li>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <li class="list-group-item">No hay sedes disponibles.</li>
+  <?php endif; ?>
+</ol>
+
+<?php include 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/footer.phtml'; ?>

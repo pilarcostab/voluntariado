@@ -1,0 +1,24 @@
+<?php require 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/header.phtml'; ?>
+
+<h1>Voluntarios en la Sede <?php echo htmlspecialchars($id_sede); ?></h1>
+
+<?php if (!empty($volunteers)): ?>
+    <ol class="list-group list-group-numbered">
+        <?php foreach ($volunteers as $volunteer): ?>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">
+                        <?php echo htmlspecialchars($volunteer->nombre) . ' ' . htmlspecialchars($volunteer->apellido); ?>
+                    </div>
+                </div>
+                <!-- Aquí podrías usar una insignia o algún dato adicional sobre el voluntario si es necesario -->
+                <span class="badge text-bg-primary rounded-pill">Voluntario</span>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+<?php else: ?>
+    <p>No hay voluntarios registrados en esta sede.</p>
+<?php endif;
+
+require 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/footer.phtml'; 
+?>

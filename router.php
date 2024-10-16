@@ -15,7 +15,14 @@ switch ($params[0]) {
         $controladorVoluntario = new controladorVoluntario();
         $controladorVoluntario->showHome();
         break;
-
+    case 'sedes':
+        $controladorVoluntario = new controladorVoluntario();
+        $controladorVoluntario->sedes();
+        break;
+    case 'voluntario':
+        $controladorVoluntario = new controladorVoluntario();
+        $controladorVoluntario->mostrarVoluntarios($params[1]);
+        break;
     default:
         # code...
         break;
