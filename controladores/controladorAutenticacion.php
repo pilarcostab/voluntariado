@@ -1,7 +1,7 @@
 <?php
 require_once './vistas/vistaAutenticacion.php';
 require_once './modelos/modeloVoluntario.php';
-require_once './midlewares/midlewareAdminAuten.php';
+
 
 class controladorAutenticacion
 {
@@ -41,9 +41,12 @@ class controladorAutenticacion
             session_start();
             $_SESSION['id_voluntario'] = $voluntarioFromDb->id_voluntario;
             $_SESSION['email'] = $voluntarioFromDb->email;
-
-            header('Location: ' . BASE_URL . 'home');
-            exit;
+            $esAdmin = $this->modelo->validarUsuario($email);
+            if (!$esAdmin) {
+                header('Location: ' . BASE_URL . 'home');
+            } elseif ($esAdmin) {
+                header('Location: ' . BASE_URL . 'homeAdmin');
+            }
         } else return $this->vista->mostrarFormularioLogin('Credenciales incorrectas');
     }
 

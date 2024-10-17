@@ -1,7 +1,7 @@
 <?php
 require_once './controladores/controladorVoluntario.php';
 require_once './controladores/controladorSede.php';
-
+require_once './controladores/controladorAdmin.php';
 require_once './controladores/controladorAutenticacion.php';
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -37,6 +37,27 @@ switch ($params[0]) {
     case 'logout':
         $controladorAutenticacion = new controladorAutenticacion();
         $controladorAutenticacion->logout();
+        break;
+    case 'homeAdmin':
+        $controladorAdmin = new controladorAdmin();
+        $controladorAdmin->homeAdmin();
+        break;
+    case 'agregarVoluntario':
+        $controladorAdmin = new controladorAdmin();
+        $controladorAdmin->agregarVoluntario();
+        break;
+    case 'eliminarVoluntario':
+        $controladorAdmin = new controladorAdmin();
+        $controladorAdmin->EliminarVoluntario($params[1]);
+        break;
+    case 'editarVoluntario':
+        $controladorAdmin = new controladorAdmin();
+        $controladorAdmin->editarVoluntario($params[1]);
+        # code...
+        break;
+    case 'editarV':
+        $controladorAdmin = new controladorAdmin();
+        $controladorAdmin->editar();
         break;
     default:
         # code...

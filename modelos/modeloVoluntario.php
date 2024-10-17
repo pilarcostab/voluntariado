@@ -27,4 +27,15 @@ class modeloVoluntario
         $voluntario = $query->fetch(PDO::FETCH_OBJ);
         return $voluntario;
     }
+
+    public function validarUsuario($email)
+    {
+        $query = $this->db->prepare('SELECT * FROM voluntario WHERE email= ?');
+        $query->execute([$email]);
+        $voluntario = $query->fetch(PDO::FETCH_OBJ);
+        if ($voluntario->nombre === 'webadmin') {
+            return true;
+        }
+        return false;
+    }
 }
