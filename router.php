@@ -26,13 +26,6 @@ switch ($params[0]) {
         $controladorAutenticacion = new controladorAutenticacion();
         $controladorAutenticacion->ingresar();
         break;
-    case 'inscribirse':
-        $controladorAutenticacion = new controladorAutenticacion();
-        $controladorAutenticacion->mostrarFormularioSignup();
-        break;
-    case 'signup':
-        # code...
-        break;
     case 'sedes':
         $controladorSede = new controladorSede();
         $controladorSede->sedes();
@@ -44,7 +37,7 @@ switch ($params[0]) {
     case 'logout':
         $controladorAutenticacion = new controladorAutenticacion();
         $controladorAutenticacion->logout();
-        break;        
+        break;
     default:
         # code...
         break;

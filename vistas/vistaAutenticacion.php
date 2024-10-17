@@ -5,13 +5,8 @@ class vistaAutenticacion
 {
     public function __construct() {}
 
-    public function mostrarFormularioLogin()
+    public function mostrarFormularioLogin($error = '')
     {
         require_once './templates/formLog-in.phtml';
-    }
-
-    public function mostrarFormularioSignup()
-    {
-        require_once './templates/formSign-up.phtml';
     }
 }

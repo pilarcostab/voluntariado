@@ -28,9 +28,6 @@
                     <!-- si el usuario no está loguead mostrar sign up y log 9in -->
                     <?php if (!isset($_SESSION['USER_ID'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="inscribirse">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="log-in">Log In</a>
                         </li>
                     <?php endif; ?>

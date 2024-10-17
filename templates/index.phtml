@@ -38,15 +38,20 @@
         <tbody class="table-group-divider">
             <?php foreach ($voluntarios as $voluntario): ?>
                 <tr>
-                    <th scope="row"><?= $voluntario->id_voluntario ?></th>
-                    <td><?= $voluntario->nombre ?></td>
-                    <td><?= $voluntario->apellido ?></td>
-                    <td><?= $voluntario->sede_nombre ?></td>
+                    <th scope="row"><?= htmlspecialchars($voluntario->id_voluntario) ?></th>
+                    <td><?= htmlspecialchars($voluntario->nombre) ?></td>
+                    <td><?= htmlspecialchars($voluntario->apellido) ?></td>
+                    <td><?= htmlspecialchars($voluntario->sede_nombre) ?></td>
+
+                    <?php if ($voluntario->nombre === 'webadmin'): ?>
+                        <!-- Mostrar botones de editar y eliminar si es administrador -->
+                        <td><a class="btn btn-primary" href="#" role="button">Editar</a></td>
+                        <td><a class="btn btn-primary" href="#" role="button">Eliminar</a></td>
+                    <?php endif; ?>
                 </tr>
-
-
             <?php endforeach; ?>
         </tbody>
+
     </table>
 </div>
 <?php include_once './templates/footer.phtml'; ?>

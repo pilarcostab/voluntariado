@@ -4,9 +4,10 @@ class modeloVoluntario
 {
     private $db;
 
-    public function __construct(){
-        $this->db= new PDO('mysql:host=localhost;'.'dbname=voluntariado;charset=utf8', 'root', '');
-    }   
+    public function __construct()
+    {
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=voluntariado;charset=utf8', 'root', '');
+    }
 
     public function obtenerVoluntarios()
     {
@@ -17,5 +18,13 @@ class modeloVoluntario
         $query->execute();
         $voluntarios = $query->fetchAll(PDO::FETCH_OBJ);
         return $voluntarios;
+    }
+
+    public function obtenerVoluntarioEmail($email)
+    {
+        $query = $this->db->prepare('SELECT * FROM voluntario WHERE email= ?');
+        $query->execute([$email]);
+        $voluntario = $query->fetch(PDO::FETCH_OBJ);
+        return $voluntario;
     }
 }
