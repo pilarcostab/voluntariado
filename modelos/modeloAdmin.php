@@ -11,10 +11,7 @@ class modeloAdmin
 
     public function obtenerVoluntarios()
     {
-        $query = $this->db->prepare('
-        SELECT v.id_voluntario, v.nombre, v.apellido, v.id_sede, s.pais AS sede_nombre
-        FROM voluntario v
-        JOIN sede s ON v.id_sede = s.id_sede');
+        $query = $this->db->prepare('SELECT * FROM voluntario');
         $query->execute();
         $voluntarios = $query->fetchAll(PDO::FETCH_OBJ);
         return $voluntarios;
@@ -41,6 +38,13 @@ class modeloAdmin
         return $voluntario;
     }
 
+    public function obtenerSedes()
+    {
+        $query = $this->db->prepare('SELECT * FROM sede');
+        $query->execute();
+        $sedes = $query->fetchAll(PDO::FETCH_OBJ);
+        return $sedes;
+    }
 
     public function agregarVoluntario($nombre, $apellido, $id_sede)
     {
@@ -56,7 +60,8 @@ class modeloAdmin
 
     public function editarVoluntario($nombre, $apellido, $id_sede, $id)
     {
-        $query = $this->db->prepare('UPDATE voluntario SET nombre= ?, apellido= ?,  sede= ?  WHERE id_voluntario= ?');
+        $query = $this->db->prepare('UPDATE voluntario SET nombre= ?, apellido= ?,  id_sede= ?  WHERE id_voluntario= ?');
         $query->execute([$nombre, $apellido, $id_sede, $id]);
+        var_dump($nombre, $apellido, $id, $id_sede);
     }
 }

@@ -1,20 +1,24 @@
 <div class="container text-center">
-    <form method="POST" action="editarV">
+    <form method="POST" action="<?= BASE_URL ?>editarV/<?= $voluntario->id_voluntario ?>">
 
         <legend>modificar voluntario</legend>
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">nombre</label>
-            <input type="text" id="disabledTextInput" class="form-control" placeholder="nombre" name="nombre" value="<?php echo $voluntario->nombre; ?>">
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="nombre" name="nombre" value="<?= $voluntario->nombre; ?>">
         </div>
         <div class="mb-3">
             <label for="disabledTextInput" class="form-label">apellido</label>
-            <input type="text" id="disabledTextInput" class="form-control" placeholder="apellido" name="apellido" value="<?php echo $voluntario->apellido; ?>">
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="apellido" name="apellido" value="<?= $voluntario->apellido; ?>">
         </div>
         <div class="mb-3">
             <label for="disabledSelect" class="form-label">sede</label>
             <select id="disabledSelect" class="form-select" name="sede">
-                <option>africa</option>
-                <option value="">australia</option>
+                <?php foreach ($sedes as $sede): ?>
+                    <option value="<?= $sede->id_sede; ?>">
+                        <?= $sede->pais; ?>
+                    </option>
+
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="mb-3">

@@ -45,7 +45,7 @@ class controladorAutenticacion
             if (!$esAdmin) {
                 header('Location: ' . BASE_URL . 'home');
             } elseif ($esAdmin) {
-                header('Location: ' . BASE_URL . 'homeAdmin');
+                header('Location: ' . BASE_URL . 'home');
             }
         } else return $this->vista->mostrarFormularioLogin('Credenciales incorrectas');
     }

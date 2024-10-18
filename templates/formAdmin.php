@@ -13,8 +13,12 @@
         <div class="mb-3">
             <label for="disabledSelect" class="form-label">sede</label>
             <select id="disabledSelect" class="form-select" name="sede">
-                <option>africa</option>
-                <option value="">australia</option>
+                <?php foreach ($sedes as $sede): ?>
+                    <option value="<?= $sede->id_sede; ?>">
+                        <?= $sede->pais; ?>
+                    </option>
+
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="mb-3">
