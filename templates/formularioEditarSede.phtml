@@ -1,0 +1,21 @@
+<?php include './templates/header.phtml'; ?>
+<?php if (isset($_SESSION['email']) && $_SESSION['email'] === 'web2@gmail.com'): ?>
+<div class="container text-center">
+    <form method="POST" action="<?= BASE_URL ?>editarSedeAction/<?= $sede->id_sede ?>">
+
+        <legend>Modificar Sede</legend>
+        <div class="mb-3">
+            <label for="pais" class="form-label">País</label>
+            <input type="text" id="pais" class="form-control" placeholder="País" name="pais" value="<?= htmlspecialchars($sede->pais); ?>" required>
+        </div>
+        <div class="mb-3">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" id="ciudad" class="form-control" placeholder="Ciudad" name="ciudad" value="<?= htmlspecialchars($sede->ciudad); ?>" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+    </form>
+    <a href="<?= BASE_URL ?>sedes" class="btn btn-secondary w-100 mt-3">Cancelar</a>
+</div>
+<?php endif;
+include './templates/footer.phtml';

@@ -18,10 +18,10 @@
 
 <figure class="text-center">
     <blockquote class="blockquote">
-        <p>Que esperas para sumarte?</p>
+        <p>¿Qué esperas para sumarte?</p>
     </blockquote>
     <figcaption class="blockquote-footer">
-        una experiencia unica en la vida
+        Una experiencia única en la vida
     </figcaption>
 </figure>
 <div class="container">
@@ -31,10 +31,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">voluntario</th>
-                <th scope="col">nombre</th>
-                <th scope="col">apellido</th>
-                <th scope="col">sede</th>
+                <th scope="col">Voluntario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Sede</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -45,8 +45,8 @@
                     <td><?= htmlspecialchars($voluntario->apellido) ?></td>
                     <td><?= htmlspecialchars($voluntario->id_sede) ?></td>
                     <?php if (isset($_SESSION['id_voluntario'])): ?>
-                        <td><a class="btn btn-primary" href="editarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">editar</a></td>
-                        <td><a class="btn btn-primary" href="eliminarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">eliminar</a></td>
+                        <td><a class="btn btn-primary" href="editarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">Editar</a></td>
+                        <td><a class="btn btn-primary" href="eliminarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">Eliminar</a></td>
                     <?php endif ?>
                 </tr>
             <?php endforeach; ?>

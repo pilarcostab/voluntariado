@@ -1,0 +1,28 @@
+<?php include './templates/header.phtml'; ?>
+<br><h1>Listado de Sedes</h1><br>
+
+<ol class="list-group list-group-numbered">
+  <?php if (!empty($sedes)): ?>
+    <?php foreach ($sedes as $index => $sede): ?>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold">
+                <a href="<?php echo BASE_URL . 'voluntario/' . $sede->id_sede; ?>" class="text-decoration-none">
+                    <?php echo $sede->ciudad . ", " . $sede->pais; ?>
+                </a>
+            </div>
+        </div>
+        <span class="badge text-bg-primary rounded-pill"><?php echo $index + 1; ?></span>
+      </li>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <li class="list-group-item">No hay sedes disponibles.</li>
+  <?php endif; ?>
+</ol>
+
+<?php if (isset($_SESSION['email']) && $_SESSION['email'] === 'web2@gmail.com'): 
+  include './templates/editarSede.phtml';
+endif;
+?>
+
+<?php include './templates/footer.phtml'; ?>

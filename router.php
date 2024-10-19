@@ -5,6 +5,8 @@ require_once './controladores/controladorAutenticacion.php';
 require_once './libs/response.php';
 require_once './middlewares/middleSesion.php';
 require_once './middlewares/middleVerificacion.php';
+require_once './vistas/vistaSedes.php';
+
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'home';
@@ -57,13 +59,47 @@ switch ($params[0]) {
         verifyAuthMiddleware($res);
         $controladorVoluntario = new controladorVoluntario();
         $controladorVoluntario->editarVoluntario($params[1]);
-        # code...
         break;
     case 'editarV':
         $controladorVoluntario = new controladorVoluntario();
         $controladorVoluntario->editar($params[1]);
         break;
+    case 'agregarSede':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controladorSede = new controladorSede();
+        $controladorSede->agregarSede();  
+        break;
+    case 'eliminarSede':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controladorSede = new controladorSede();
+        $controladorSede->eliminarSede();  
+        break;
+    case 'editarSede':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controladorSede = new controladorSede();
+        if (isset($params[1])) {
+            $controladorSede->mostrarFormularioEditarSede($params[1]);  
+        } else {
+            $vistaSedes = new vistaSedes();
+            $vistaSedes->mostrarError("ID de sede no especificado para editar.");
+        }
+        break;
+    case 'editarSedeAction':
+        sessionAuthMiddleware($res);
+        verifyAuthMiddleware($res);
+        $controladorSede = new controladorSede();
+        if (isset($params[1])) {
+            $controladorSede->editarSede($params[1]);  
+        } else {
+            $vistaSedes = new vistaSedes();
+            $vistaSedes->mostrarError("ID de sede no especificado para editar.");
+        }
+        break;
     default:
-        # code...
+        http_response_code(404);
+        echo "404 Not Found";
         break;
 }

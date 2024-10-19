@@ -1,7 +1,7 @@
 <?php
 require_once './vistas/vistaAutenticacion.php';
 require_once './modelos/modeloVoluntario.php';
-
+require_once './modelos/modeloSede.php';
 
 class controladorAutenticacion
 {
