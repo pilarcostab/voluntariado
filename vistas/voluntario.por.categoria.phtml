@@ -1,4 +1,4 @@
-<?php require 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/header.phtml'; ?>
+<?php require './templates/header.phtml'; ?>
 
 <h1>Voluntarios en la Sede <?php echo htmlspecialchars($id_sede); ?></h1>
 
@@ -17,7 +17,6 @@
     </ol>
 <?php else: ?>
     <p>No hay voluntarios registrados en esta sede.</p>
-<?php endif;
-
-require 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/footer.phtml'; 
+<?php endif; 
+require './templates/footer.phtml'; 
 ?>

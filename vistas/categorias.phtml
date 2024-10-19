@@ -1,4 +1,4 @@
-<?php include 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/header.phtml'; ?>
+<?php include './templates/header.phtml'; ?>
 <br><h1>Listado de Sedes</h1><br>
 <ol class="list-group list-group-numbered">
   <?php if (!empty($sedes)): ?>
@@ -25,4 +25,4 @@
     <a href="<?php echo BASE_URL . 'eliminar-categoria/' . $sede->id_sede; ?>" class="btn btn-danger">Eliminar</a>
 <?php endif; ?>
 
-<?php include 'C:/xampp/htdocs/web2/tpe2/voluntariado/templates/footer.phtml'; ?>
+<?php include './templates/footer.phtml'; ?>
