@@ -25,7 +25,9 @@
     </figcaption>
 </figure>
 <div class="container">
-
+    <?php if (isset($_SESSION['id_voluntario'])): ?>
+        <?php require_once './templates/formAdmin.php' ?>
+    <?php endif ?>
     <table class="table">
         <thead>
             <tr>
@@ -38,15 +40,18 @@
         <tbody class="table-group-divider">
             <?php foreach ($voluntarios as $voluntario): ?>
                 <tr>
-                    <th scope="row"><?= $voluntario->id_voluntario ?></th>
-                    <td><?= $voluntario->nombre ?></td>
-                    <td><?= $voluntario->apellido ?></td>
-                    <td><?= $voluntario->sede_nombre ?></td>
+                    <th scope="row"><?= htmlspecialchars($voluntario->id_voluntario) ?></th>
+                    <td><?= htmlspecialchars($voluntario->nombre) ?></td>
+                    <td><?= htmlspecialchars($voluntario->apellido) ?></td>
+                    <td><?= htmlspecialchars($voluntario->id_sede) ?></td>
+                    <?php if (isset($_SESSION['id_voluntario'])): ?>
+                        <td><a class="btn btn-primary" href="editarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">editar</a></td>
+                        <td><a class="btn btn-primary" href="eliminarVoluntario/<?= $voluntario->id_voluntario ?>" role="button">eliminar</a></td>
+                    <?php endif ?>
                 </tr>
-
-
             <?php endforeach; ?>
         </tbody>
+
     </table>
 </div>
 <?php include_once './templates/footer.phtml'; ?>

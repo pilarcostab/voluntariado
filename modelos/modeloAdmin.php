@@ -1,6 +1,6 @@
 <?php
 
-class modeloVoluntario
+class modeloAdmin
 {
     private $db;
 
@@ -17,24 +17,18 @@ class modeloVoluntario
         return $voluntarios;
     }
 
-    public function obtenerVoluntarioEmail($email)
+    public function obtenerSedeId($sede)
     {
-        $query = $this->db->prepare('SELECT * FROM voluntario WHERE email= ?');
-        $query->execute([$email]);
-        $voluntario = $query->fetch(PDO::FETCH_OBJ);
-        return $voluntario;
-    }
-
-    public function validarUsuario($email)
-    {
-        $query = $this->db->prepare('SELECT * FROM voluntario WHERE email= ?');
-        $query->execute([$email]);
-        $voluntario = $query->fetch(PDO::FETCH_OBJ);
-        if ($voluntario->nombre === 'webadmin') {
-            return true;
+        $query = $this->db->prepare('SELECT * FROM sede WHERE pais = ?');
+        $query->execute([$sede]);
+        $resultado = $query->fetch(PDO::FETCH_OBJ);
+        if ($resultado) {
+            $id = $resultado->id_sede;
+            return $id;
         }
         return false;
     }
+
 
     public function obtenerVoluntario($id)
     {
